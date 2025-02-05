@@ -2,7 +2,7 @@ services:
   db:
     image: cidraque/mi_cine2:v1
     container_name: contenedorMiCine2
-    #redundantes las variables de entorno pq ya estan definidas en el el dockerfile de la db, se podría gastar para reescribirlas con las que se quisiera
+    
     environment:
       MYSQL_ROOT_PASSWORD: contrasenyaRoot
       MYSQL_DATABASE: cine
