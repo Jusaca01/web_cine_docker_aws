@@ -1,0 +1,31 @@
+services:
+  db:
+    image: cidraque/mi_cine2:v1
+    container_name: contenedorMiCine2
+    #redundantes las variables de entorno pq ya estan definidas en el el dockerfile de la db, se podría gastar para reescribirlas con las que se quisiera
+    environment:
+      MYSQL_ROOT_PASSWORD: contrasenyaRoot
+      MYSQL_DATABASE: cine
+      MYSQL_USER: usuario1
+      MYSQL_PASSWORD: contrasenyaUsuario1
+    ports:
+      - "3306:3306"
+
+  php:
+    image: cidraque/mi_app_cine2:v1
+    container_name: contenedorMiApp
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: contenedorPhpMyAdmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: contrasenyaRoot
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
