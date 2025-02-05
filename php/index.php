@@ -41,7 +41,7 @@ $result = $conn->query($sql);
 
 <body>
     <div class="header-container">
-        <h1>Edición del listado de películas PRO 2</h1>
+        <h1>Edición del listado de películas PRO 3</h1>
         <a href="index.php" class="btn">EDITAR</a>
     </div>
     <table>
